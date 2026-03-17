@@ -3,7 +3,7 @@ name: ML Model CI
 
 on:
     push:
-        branches_ignore: 
+        branches-ignore: 
           - main
     pull_request:
 
@@ -28,3 +28,9 @@ jobs:
             - name: Model Dry Test
               run: |
                 python -c "import torch; print('Model environment ready!')"
+
+            - name: Creating README File
+              uses: actions/upload-artifact@v4
+              with:
+                name: project-doc
+                path: README.md
